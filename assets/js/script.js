@@ -9,7 +9,11 @@ var guessFalse = document.getElementById("isFalse");
 var guessFeedback = document.getElementById("guessFeedback");
 var finalScore = 0;
 
-// when 
+function initiateGame(){
+    finalScore = 0;
+}
+
+// When a name is entered and submitted, store score, remove form, and offer a new game
 submitScore.addEventListener("click", function(event){
     event.preventDefault();
 
@@ -23,3 +27,12 @@ submitScore.addEventListener("click", function(event){
         return;
     }
 })
+
+newGame.addEventListener("click", function(){
+    guessTrue.setAttribute("style", "display: ");
+    guessFalse.setAttribute("style", "display: ");
+    newGame.setAttribute("style", "display: none");
+    initiateGame();
+}
+
+)
