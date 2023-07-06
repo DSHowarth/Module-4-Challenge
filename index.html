@@ -4,25 +4,25 @@
 <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="script" href="/assets/js/script.js">
     <title>Weakest &lt;a href&gt;</title>
 </head>
 <body>
     <header>
         <a href="./scores.html">View Scores</a>
-        <div>Time remaining: <span id="time"></span></div>
+        <div>Time remaining: <span id="time"></span> seconds</div>
     </header>
     <section>
         <h1 id="question"></h1>
-        <form>
+        <form id="saveScore">
             <label for="initials">Enter initials to save score:</label><br>
             <input type="text" id="initials" name="initials">
-            <button id="submit">Submit</button>
+            <button id="submitScore">Submit</button>
         </form>
         <button id="newGame">Play again?</button>
-        <button class="answers">True</button>
-        <button class="answers">False</button>
-        <h3 id="answerTracker"></h3>
+        <button class="answers" id="isTrue">True</button>
+        <button class="answers" id="isFalse">False</button>
+        <h3 id="guessFeedback"></h3>
     </section>
+    <script src="./assets/js/script.js" defer></script>
 </body>
 </html>
