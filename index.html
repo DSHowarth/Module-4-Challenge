@@ -9,17 +9,20 @@
 </head>
 <body>
     <header>
-        <div>View Scores</div>
+        <a href="./scores.html">View Scores</a>
         <div>Time remaining: <span id="time"></span></div>
     </header>
-    <h1 id="question"></h1>
-    <form>
-        <label for="initials">Enter initials to save score:</label><br>
-        <input type="text" id="initials" name="initials">
-        <button id="submit">Submit</button>
-    </form>
-    <button class="answers">True</button>
-    <button class="answers">False</button>
-    <h3 id="answerTracker"></h3>
+    <section>
+        <h1 id="question"></h1>
+        <form>
+            <label for="initials">Enter initials to save score:</label><br>
+            <input type="text" id="initials" name="initials">
+            <button id="submit">Submit</button>
+        </form>
+        <button id="newGame">Play again?</button>
+        <button class="answers">True</button>
+        <button class="answers">False</button>
+        <h3 id="answerTracker"></h3>
+    </section>
 </body>
 </html>
