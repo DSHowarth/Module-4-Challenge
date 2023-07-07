@@ -25,6 +25,7 @@ button{
     background-color: purple;
     justify-self: center;
 }
+/* initially hiding answers and form until called upon by the game starting and ending */
 .answers{
     display: none;
     width: 80px;

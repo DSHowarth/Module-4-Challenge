@@ -7,22 +7,27 @@
     <title>Weakest &lt;a href&gt;</title>
 </head>
 <body>
+    <!-- Header with link to scores and timer -->
     <header>
         <a href="./scores.html">View Scores</a>
         <div>Time remaining: <span id="time"> 60</span> seconds</div>
     </header>
+    <!-- h1 tag that displays the welcome message and all of the questions during the game -->
     <h1 id="question">Welcome! Are you ready to play?</h1>
-    <section>
-        <form id="saveScore">
-            <label for="initials">Enter initials to save score:</label>
-            <input type="text" id="initials" name="initials">
-            <button id="submitScore">Submit</button>
-        </form>
-        <button id="newGame">New Game</button>
-        <button class="answers" id="isTrue">True</button>
-        <button class="answers" id="isFalse">False</button>
-    </section>
+
+    <!-- form for submitting scores after game -->
+    <form id="saveScore">
+        <label for="initials">Enter initials to save score:</label>
+        <input type="text" id="initials" name="initials">
+        <button id="submitScore">Submit</button>
+    </form>
+
+    <button id="newGame">New Game</button>
+    <!-- answer options -->
+    <button class="answers" id="isTrue">True</button>
+    <button class="answers" id="isFalse">False</button>
+
     <h3 id="guessFeedback"></h3>
-    <script src="./assets/js/script.js" defer></script>
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>

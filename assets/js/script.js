@@ -52,6 +52,7 @@ function initiateGame(){
 
         if(time <= 0){
             timeLeft.textContent = 0;
+            // hide true/false buttons, show score submission form and new game button, display score
             guessTrue.setAttribute("style", "display: none");
             guessFalse.setAttribute("style", "display: none");
             scoreForm.setAttribute("style", "display: flex");
