@@ -8,9 +8,31 @@ var guessTrue = document.getElementById("isTrue");
 var guessFalse = document.getElementById("isFalse");
 var guessFeedback = document.getElementById("guessFeedback");
 var finalScore = 0;
+var time = 60;
+
+var questionList = [
+    "CSS lets you execute scripts on your webpage",
+    "Strings can be thought of as 'read only' arrays.",
+]
+
+var answerList = [
+    false,
+    true,
+]
 
 function initiateGame(){
     finalScore = 0;
+    time = 60;
+    timeLeft.textContent = time;
+
+    setInterval(function(){
+        time--;
+        timeLeft.textContent = time;
+    }, 1000)
+
+    while(time > 0){
+
+    }
 }
 
 // When a name is entered and submitted, store score, remove form, and offer a new game
@@ -28,11 +50,10 @@ submitScore.addEventListener("click", function(event){
     }
 })
 
+// When a new game is requested, hide the new game button, display the game GUI, and begin.
 newGame.addEventListener("click", function(){
-    guessTrue.setAttribute("style", "display: ");
-    guessFalse.setAttribute("style", "display: ");
+    guessTrue.setAttribute("style", "display: flex");
+    guessFalse.setAttribute("style", "display: flex");
     newGame.setAttribute("style", "display: none");
     initiateGame();
-}
-
-)
+})
