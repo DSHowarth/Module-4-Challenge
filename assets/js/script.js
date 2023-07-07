@@ -14,6 +14,18 @@ var answer;
 var problemList = {
     "CSS lets you execute scripts on your webpage.": false,
     "Strings can be thought of as 'read only' arrays.": true,
+    ".getElementbyId gives you the value of the element selected": false,
+    "You must use .append() to make JavaScript created elements visible on the webpage.": true,
+    "event.preventDefault() keeps a form from refreshing the webpage": true,
+    "To convert a string to a number, you use the Numerals() method.": false,
+    "Arrays are contained within {}.": false,
+    "stopInterval() cancels a setInterval loop.": false,
+    "Object properties are in an ordered list.": false,
+    "Under no circumstances should you never not call a variable before it is used.": false,
+    "Functions declared by 'function functionName(){}' will run when the page loads.": false,
+    "Accessing an entry in an array can be done with arrayName[entryIndex].": true,
+    "Javascript needs to be linked below any elements it references in the html.": true,
+    ".innerHTML() and .textContent() are functionally the same.": false,
 }
 
 // Create arrays to be able to select random questions and validate them
@@ -43,6 +55,7 @@ function initiateGame(){
             guessFalse.setAttribute("style", "display: none");
             scoreForm.setAttribute("style", "display: flex");
             newGame.setAttribute("style", "display: flex");
+            question.textContent = "Game Over!";
             clearInterval(gameTimer);
         }
         else{
