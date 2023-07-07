@@ -9,7 +9,7 @@ var guessFalse = document.getElementById("isFalse");
 var guessFeedback = document.getElementById("guessFeedback");
 var finalScore = 0;
 var time = 60;
-
+var answer;
 var questionList = [
     "CSS lets you execute scripts on your webpage.",
     "Strings can be thought of as 'read only' arrays.",
@@ -24,15 +24,24 @@ function initiateGame(){
     finalScore = 0;
     time = 60;
     timeLeft.textContent = time;
-    var problemIndex = Math.floor(Math.random() * (questionList.length - 1))
+    var problemIndex = Math.floor(Math.random() * (questionList.length))
     question.textContent = questionList[problemIndex];
     var answer = answerList[problemIndex];
 
-    setInterval(function(){
+    gameTimer = setInterval(function(){
         time--;
         timeLeft.textContent = time;
 
-        if()
+        if(time === 0){
+            guessTrue.setAttribute("style", "display: none");
+            guessFalse.setAttribute("style", "display: none");
+            scoreForm.setAttribute("style", "display: flex");
+            newGame.setAttribute("style", "display: flex");
+            clearInterval(gameTimer);
+        }
+        else{
+            return;
+        }
     }, 1000)
 
 }
@@ -66,9 +75,15 @@ guessTrue.addEventListener("click", function(){
         guessFeedback.textContent = "Correct, your current score is " + finalScore;
     }
     else{
+        if (time < 5){
+            time = 1;
+        }
+        else{
+            time = time - 5;
+        }
         guessFeedback.textContent = "Incorrect, your current score is " + finalScore;
     }
-    problemIndex = Math.floor(Math.random() * (questionList.length - 1))
+    problemIndex = Math.floor(Math.random() * (questionList.length))
     question.textContent = questionList[problemIndex];
     answer = answerList[problemIndex];
 })
@@ -79,9 +94,15 @@ guessFalse.addEventListener("click", function(){
         guessFeedback.textContent = "Correct, your current score is " + finalScore;
     }
     else{
+        if (time < 5){
+            time = 1;
+        }
+        else{
+            time = time - 5;
+        }
         guessFeedback.textContent = "Incorrect, your current score is " + finalScore;
     }
-    problemIndex = Math.floor(Math.random() * (questionList.length - 1))
+    problemIndex = Math.floor(Math.random() * (questionList.length ))
     question.textContent = questionList[problemIndex];
     answer = answerList[problemIndex];
 })
