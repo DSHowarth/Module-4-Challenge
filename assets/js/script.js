@@ -83,11 +83,13 @@ guessTrue.addEventListener("click", function(){
     if (answer){
         finalScore++;
         guessFeedback.textContent = "Correct, your current score is " + finalScore;
+        guessFeedback.setAttribute("style", "color: green")
     }
     // if guess is incorrect, subtract 5 seconds from remaining time
     else{
         time = time - 5;
         guessFeedback.textContent = "Incorrect, your current score is " + finalScore;
+        guessFeedback.setAttribute("style", "color: red")
     }
     // correct or not, generate a new question
     problemIndex = Math.floor(Math.random() * (questionList.length))
@@ -99,10 +101,12 @@ guessFalse.addEventListener("click", function(){
     if (!answer){
         finalScore++;
         guessFeedback.textContent = "Correct, your current score is " + finalScore;
+        guessFeedback.setAttribute("style", "color: green")
     }
     else{
         time = time - 5;
         guessFeedback.textContent = "Incorrect, your current score is " + finalScore;
+        guessFeedback.setAttribute("style", "color: red")
     }
     problemIndex = Math.floor(Math.random() * (questionList.length ))
     question.textContent = questionList[problemIndex];
