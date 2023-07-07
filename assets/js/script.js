@@ -41,6 +41,7 @@ function initiateGame(){
     // Generate random question and display it
     var problemIndex = Math.floor(Math.random() * (questionList.length))
     question.textContent = questionList[problemIndex];
+    question.setAttribute("style", "font-size:30px")
     var answer = answerList[problemIndex];
 
     // Game timer will update every second, and when the timer hits zero, 
@@ -55,7 +56,8 @@ function initiateGame(){
             guessFalse.setAttribute("style", "display: none");
             scoreForm.setAttribute("style", "display: flex");
             newGame.setAttribute("style", "display: flex");
-            question.textContent = "Game Over!";
+            question.textContent = "Game Over! Your score was " + finalScore + ".";
+            guessFeedback.textContent = "";
             clearInterval(gameTimer);
         }
         else{

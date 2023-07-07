@@ -23,6 +23,7 @@ header a{
 button{
     font-size: 20px;
     background-color: purple;
+    justify-self: center;
 }
 .answers{
     display: none;
