@@ -16,22 +16,28 @@ var problemList = {
     "Strings can be thought of as 'read only' arrays.": true,
 }
 
+// Create arrays to be able to select random questions and validate them
 var questionList = Object.keys(problemList);
 var answerList = Object.values(problemList);
 
 function initiateGame(){
+    // Reset score and time in case of previous attempts
     finalScore = 0;
     time = 60;
     timeLeft.textContent = time;
+    // Generate random question and display it
     var problemIndex = Math.floor(Math.random() * (questionList.length))
     question.textContent = questionList[problemIndex];
     var answer = answerList[problemIndex];
 
+    // Game timer will update every second, and when the timer hits zero, 
+    // end the game and display the score submission screen
     gameTimer = setInterval(function(){
         time--;
         timeLeft.textContent = time;
 
-        if(time === 0){
+        if(time <= 0){
+            timeLeft.textContent = 0;
             guessTrue.setAttribute("style", "display: none");
             guessFalse.setAttribute("style", "display: none");
             scoreForm.setAttribute("style", "display: flex");
@@ -48,13 +54,13 @@ function initiateGame(){
 // When a name is entered and submitted, store score, remove form, and offer a new game
 submitScore.addEventListener("click", function(event){
     event.preventDefault();
-
     if (initials.value !== ""){
-        localStorage.setItem(initials.value, JSON.stringify(finalScore));
+        localStorage.setItem(initials.value, JSON.stringify(finalScore).trim());
         scoreForm.setAttribute("style", "display: none")
         scoreForm.reset();
         question.textContent = "Score saved! Click 'view scores' to see your ranking, or play again!";
     }
+    // do nothing if submit field is empty
     else{
         return;
     }
@@ -69,20 +75,20 @@ newGame.addEventListener("click", function(){
     initiateGame();
 })
 
+// True and False button functionality for the game. They are exactly the same apart from whether they
+// evaluate true or false as correct, so I won't be repeating comments within.
 guessTrue.addEventListener("click", function(){
+    // if guess is correct, add to score
     if (answer){
         finalScore++;
         guessFeedback.textContent = "Correct, your current score is " + finalScore;
     }
+    // if guess is incorrect, subtract 5 seconds from remaining time
     else{
-        if (time < 5){
-            time = 1;
-        }
-        else{
-            time = time - 5;
-        }
+        time = time - 5;
         guessFeedback.textContent = "Incorrect, your current score is " + finalScore;
     }
+    // correct or not, generate a new question
     problemIndex = Math.floor(Math.random() * (questionList.length))
     question.textContent = questionList[problemIndex];
     answer = answerList[problemIndex];
@@ -94,12 +100,7 @@ guessFalse.addEventListener("click", function(){
         guessFeedback.textContent = "Correct, your current score is " + finalScore;
     }
     else{
-        if (time < 5){
-            time = 1;
-        }
-        else{
-            time = time - 5;
-        }
+        time = time - 5;
         guessFeedback.textContent = "Incorrect, your current score is " + finalScore;
     }
     problemIndex = Math.floor(Math.random() * (questionList.length ))
