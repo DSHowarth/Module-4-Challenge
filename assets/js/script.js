@@ -11,7 +11,7 @@ var finalScore = 0;
 var time = 60;
 
 var questionList = [
-    "CSS lets you execute scripts on your webpage",
+    "CSS lets you execute scripts on your webpage.",
     "Strings can be thought of as 'read only' arrays.",
 ]
 
@@ -24,15 +24,17 @@ function initiateGame(){
     finalScore = 0;
     time = 60;
     timeLeft.textContent = time;
+    var problemIndex = Math.floor(Math.random() * (questionList.length - 1))
+    question.textContent = questionList[problemIndex];
+    var answer = answerList[problemIndex];
 
     setInterval(function(){
         time--;
         timeLeft.textContent = time;
+
+        if()
     }, 1000)
 
-    while(time > 0){
-
-    }
 }
 
 // When a name is entered and submitted, store score, remove form, and offer a new game
@@ -56,4 +58,30 @@ newGame.addEventListener("click", function(){
     guessFalse.setAttribute("style", "display: flex");
     newGame.setAttribute("style", "display: none");
     initiateGame();
+})
+
+guessTrue.addEventListener("click", function(){
+    if (answer){
+        finalScore++;
+        guessFeedback.textContent = "Correct, your current score is " + finalScore;
+    }
+    else{
+        guessFeedback.textContent = "Incorrect, your current score is " + finalScore;
+    }
+    problemIndex = Math.floor(Math.random() * (questionList.length - 1))
+    question.textContent = questionList[problemIndex];
+    answer = answerList[problemIndex];
+})
+
+guessFalse.addEventListener("click", function(){
+    if (!answer){
+        finalScore++;
+        guessFeedback.textContent = "Correct, your current score is " + finalScore;
+    }
+    else{
+        guessFeedback.textContent = "Incorrect, your current score is " + finalScore;
+    }
+    problemIndex = Math.floor(Math.random() * (questionList.length - 1))
+    question.textContent = questionList[problemIndex];
+    answer = answerList[problemIndex];
 })
