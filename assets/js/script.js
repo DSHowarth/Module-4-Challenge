@@ -10,15 +10,14 @@ var guessFeedback = document.getElementById("guessFeedback");
 var finalScore = 0;
 var time = 60;
 var answer;
-var questionList = [
-    "CSS lets you execute scripts on your webpage.",
-    "Strings can be thought of as 'read only' arrays.",
-]
 
-var answerList = [
-    false,
-    true,
-]
+var problemList = {
+    "CSS lets you execute scripts on your webpage.": false,
+    "Strings can be thought of as 'read only' arrays.": true,
+}
+
+var questionList = Object.keys(problemList);
+var answerList = Object.values(problemList);
 
 function initiateGame(){
     finalScore = 0;
@@ -66,6 +65,7 @@ newGame.addEventListener("click", function(){
     guessTrue.setAttribute("style", "display: flex");
     guessFalse.setAttribute("style", "display: flex");
     newGame.setAttribute("style", "display: none");
+    scoreForm.setAttribute("style", "display: none");
     initiateGame();
 })
 
