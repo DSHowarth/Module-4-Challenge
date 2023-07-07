@@ -25,6 +25,7 @@ function initiateGame(){
     finalScore = 0;
     time = 60;
     timeLeft.textContent = time;
+    guessFeedback.textContent = "";
     // Generate random question and display it
     var problemIndex = Math.floor(Math.random() * (questionList.length))
     question.textContent = questionList[problemIndex];
@@ -60,7 +61,7 @@ submitScore.addEventListener("click", function(event){
         scoreForm.reset();
         question.textContent = "Score saved! Click 'view scores' to see your ranking, or play again!";
     }
-    // do nothing if submit field is empty
+    // Do nothing if submit field is empty
     else{
         return;
     }
