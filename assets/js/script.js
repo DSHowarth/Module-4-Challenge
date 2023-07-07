@@ -55,7 +55,7 @@ function initiateGame(){
 submitScore.addEventListener("click", function(event){
     event.preventDefault();
     if (initials.value !== ""){
-        localStorage.setItem(initials.value, JSON.stringify(finalScore).trim());
+        localStorage.setItem(initials.value.trim(), finalScore);
         scoreForm.setAttribute("style", "display: none")
         scoreForm.reset();
         question.textContent = "Score saved! Click 'view scores' to see your ranking, or play again!";
